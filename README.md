@@ -69,4 +69,4 @@ The CSV file should contain the following columns (case-insensitive):
 
 ## Contact
 
-For any questions or feedback, please contact the developer.
+For any questions or feedback, please contact the developer via designerssplendor@gmail.com.
