@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sales Performance Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>Sales Performance Dashboard</h1>
+            <p>Comprehensive Analytics</p>
+        </div>
+
+        <!-- File Upload -->
+        <div class="file-upload">
+            <input type="file" id="csvFileInput" accept=".csv" />
+            <button id="uploadButton">Upload and Process</button>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value" id="totalRevenue">AED0</div>
+                <div class="kpi-label">Total Revenue</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="avgOrderValue">AED0</div>
+                <div class="kpi-label">Avg Order Value</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="totalTransactions">0</div>
+                <div class="kpi-label">Total Transactions</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="avgDiscount">0%</div>
+                <div class="kpi-label">Avg Discount Rate</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="topCategory">-</div>
+                <div class="kpi-label">Top Category</div>
+            </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-section">
+            <div class="filter-title">Filter Dashboard Data:</div>
+            <div class="filter-controls">
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                </select>
+                <select id="dateFilter">
+                    <option value="all">All Dates</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Sales Trends Chart (Full Width) -->
+        <div class="chart-container full-width-chart">
+            <div class="chart-title">Sales Trends Over Time</div>
+            <canvas id="salesTrendsChart" class="line-chart-canvas"></canvas>
+        </div>
+
+        <!-- Revenue by Category and Customer Behavior -->
+        <div class="charts-grid">
+            <div class="chart-container">
+                <div class="chart-title">Revenue by Product Category</div>
+                <canvas id="categoryChart" class="chart-canvas"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">Order Value Distribution</div>
+                <canvas id="orderValueChart" class="chart-canvas"></canvas>
+            </div>
+        </div>
+
+        <!-- Bottom Row Charts -->
+        <div class="charts-grid-three" style="display: flex; gap: 20px; flex-direction: column;">
+            <div style="display: flex; gap: 20px; flex: 1;">
+                <div style="display: flex; flex-direction: column; flex: 2; gap: 20px;">
+                    <div class="chart-container" style="flex: 1;">
+                        <div class="chart-title">Product Performance</div>
+                        <canvas id="productChart" class="chart-canvas"></canvas>
+                    </div>
+                    <div class="chart-container" style="flex: 1;">
+                        <div class="chart-title">Discount Impact Analysis</div>
+                        <canvas id="discountChart" class="chart-canvas"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container" style="flex: 1; align-self: flex-start;">
+                    <div class="chart-title">Top Customers</div>
+                    <table class="customers-table" id="customersTable">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Total Spent</th>
+                                <th>Orders</th>
+                                <th>AOV</th>
+                                <th>Last Purchase</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div
+                class="dashboard-interpretation"
+                style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+            >
+                
+                <div id="dashboardInterpretationContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script_updated.js"></script>
+</body>
